@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buy — Your Business Name</title>
+<meta name="description" content="Replace this with one plain sentence describing what this business does.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="head-row">
+      <a class="brand" href="index.html">YOUR BUSINESS NAME<span>your tagline here</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        Menu
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html">Who we are</a>
+        <a href="what-we-do.html">What we do</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="buy.html" aria-current="page">Buy</a>
+      </nav>
+
+      <div class="lang">
+        <label class="skip" for="lang">Choose a language</label>
+        <select id="lang" name="lang">
+            <option>English</option>
+            <option>Français</option>
+            <option>Español</option>
+            <option>Deutsch</option>
+            <option>中文</option>
+            <option>العربية</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="banner">
+  <div class="wrap" style="padding:0">
+    <img src="img/banner.svg" alt="Banner image — replace this" width="1600" height="400">
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Buy</h1>
+    <p class="standfirst">The page that asks for the sale. One job, and nothing on it that distracts from that job.</p>
+    <p class="slot">A short paragraph restating what they get. They already know — this is reassurance at the moment of deciding, not new information.</p>
+    <a class="cta" href="#">Buy now</a>
+    <p class="slot">Then the practical detail people want before paying: price, what is included, how long delivery takes, and what happens if it is not right.</p>
+    <figure>
+      <img src="img/mid.svg" alt="Picture — replace this" width="1200" height="620">
+      <figcaption>A picture of exactly what arrives. Replace this.</figcaption>
+    </figure>
+    <h2>Before you buy</h2>
+    <ul><li>Price and what is included.</li><li>Delivery or collection.</li><li>Returns, guarantee or warranty.</li></ul>
+    <p class="slot">The payment button or link goes here. Never invent one — paste the real link from whoever handles your payments, or leave it out until you have it.</p>
+  </div>
+</main>
+
+<div class="wrap">
+  <ul class="strip">
+    <li><img src="img/foot-1.svg" alt="Picture one — replace this" width="700" height="480"></li>
+    <li><img src="img/foot-2.svg" alt="Picture two — replace this" width="700" height="480"></li>
+    <li><img src="img/foot-3.svg" alt="Picture three — replace this" width="700" height="480"></li>
+  </ul>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <h3>Contact</h3>
+        <p>
+          Your Business Name<br>
+          Street address<br>
+          Town, State, Postcode
+        </p>
+        <p>
+          Phone: <a href="tel:+00000000000">your phone number</a><br>
+          Email: <a href="mailto:hello@example.com">your email address</a>
+        </p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Who we are</a></li>
+          <li><a href="what-we-do.html">What we do</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="buy.html">Buy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Monday to Friday<br>9am — 5pm</p>
+        <p class="slot">Terms &amp; Conditions (PDF) goes here — tell me if you want it on every page or one page only.</p>
+      </div>
+    </div>
+    <p class="legal">© <span id="yr">2026</span> Your Business Name. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* The menu button. Plain, small, and it tells assistive software what it did -
+   an icon that silently toggles a class is invisible to a screen reader. */
+(function () {
+  var b = document.getElementById('navToggle'), n = document.getElementById('nav');
+  if (!b || !n) return;
+  b.addEventListener('click', function () {
+    var open = n.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

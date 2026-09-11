@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Generic four-page template.
+
+   Built to be READ, not admired. Every choice below has a reason, and the
+   reasons are written down so that anyone changing it later knows what they
+   are trading away.
+
+   THE THINGS YOU WILL WANT TO CHANGE ARE ALL IN ONE PLACE - see :root below.
+   ========================================================================== */
+
+:root {
+  /* ---- the accent. Change this one line and the whole site changes. ---- */
+  --accent:        #4A6B7C;   /* calm slate blue */
+  --accent-dark:   #35505E;   /* for hover/focus - darker, not brighter */
+
+  /* ---- paper and ink ----
+     Not pure white on pure black. A stark white page glares under a lamp and
+     is one of the most common complaints from people who find reading hard.
+     Warm off-white paper and soft-black ink is easier to sit with for a while
+     and still passes contrast requirements comfortably. */
+  --paper:         #FAF8F5;
+  --paper-sunk:    #F2EEE8;   /* footer, quiet blocks */
+  --ink:           #2B2B2B;
+  --ink-soft:      #55514C;
+  --rule:          #DFD8CF;
+
+  /* ---- measure and rhythm ----
+     --measure is the single most important number here. Somewhere around 65
+     characters per line is where the eye reliably finds the start of the next
+     line. Long lines are the classic cause of re-reading the same line twice. */
+  --measure:       34rem;
+  --line:          1.8;
+  --gap:           1.75rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 112.5%; }          /* 18px base. Bigger than the web default on purpose. */
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: var(--line);
+  /* Left aligned, NEVER justified. Justified text stretches the word spaces to
+     force a straight right edge, and those uneven gaps line up vertically into
+     "rivers" that drag the eye down the page instead of along the line. It is
+     the single worst thing you can do to a dyslexic reader, and it is the
+     default in a lot of templates. */
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Anyone navigating by keyboard must be able to jump the menu. */
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: var(--paper);
+  padding: .75rem 1rem; z-index: 100;
+}
+.skip:focus { left: .5rem; top: .5rem; }
+
+/* Focus must be VISIBLE. Removing focus outlines makes a site unusable by
+   keyboard, and it is done constantly because the default ring is ugly. This
+   one is deliberate rather than absent. */
+a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.wrap { width: 100%; max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- header ---------- */
+.site-head {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.head-row {
+  display: flex; align-items: center; gap: 1rem;
+  min-height: 4.5rem;
+}
+.brand {
+  font-size: 1.15rem; font-weight: 700; letter-spacing: .01em;
+  color: var(--ink); text-decoration: none; margin-right: auto;
+}
+.brand span { display: block; font-size: .72rem; font-weight: 400; color: var(--ink-soft); letter-spacing: .06em; text-transform: uppercase; }
+
+/* ---------- navigation ---------- */
+.nav-toggle {
+  display: none;                       /* shown on small screens only */
+  align-items: center; gap: .55rem;
+  background: none; border: 1px solid var(--rule); border-radius: 4px;
+  padding: .55rem .8rem; cursor: pointer;
+  font: inherit; font-size: .9rem; color: var(--ink);
+}
+.nav-toggle .bars { display: block; width: 1.1rem; }
+.nav-toggle .bars i {
+  display: block; height: 2px; background: var(--ink); margin: 4px 0; border-radius: 2px;
+}
+.nav { display: flex; gap: .25rem; align-items: center; }
+.nav a {
+  display: block; padding: .55rem .8rem; border-radius: 4px;
+  color: var(--ink); text-decoration: none; font-size: .95rem;
+}
+.nav a:hover { background: var(--paper-sunk); }
+/* The current page is marked in TWO ways - weight and an underline - because
+   colour alone is invisible to a lot of people. */
+.nav a[aria-current="page"] {
+  font-weight: 700;
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+/* ---------- language switcher ----------
+   Styled to match the rest of the furniture rather than look bolted on.
+   In WordPress this is the GTranslate dropdown; the selectors it renders are
+   given the same rules further down. */
+.lang { position: relative; display: inline-block; }
+.lang select,
+.gtranslate_wrapper select,
+.lang .gt_selector {
+  appearance: none; -webkit-appearance: none;
+  font: inherit; font-size: .9rem; color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule); border-radius: 4px;
+  padding: .5rem 2rem .5rem .75rem;
+  cursor: pointer;
+}
+.lang::after {
+  content: ""; position: absolute; right: .75rem; top: 50%;
+  width: .45rem; height: .45rem; margin-top: -.32rem;
+  border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft);
+  transform: rotate(45deg); pointer-events: none;
+}
+
+/* ---------- banner ---------- */
+.banner {
+  background: var(--paper-sunk);
+  border-bottom: 1px solid var(--rule);
+}
+.banner img { display: block; width: 100%; height: auto; }
+
+/* ---------- page content ---------- */
+main { display: block; padding: 2.5rem 0 1rem; }
+
+h1 {
+  font-size: 1.9rem; line-height: 1.25; margin: 0 0 .4rem;
+  max-width: var(--measure);
+}
+.standfirst {
+  font-size: 1.08rem; color: var(--ink-soft);
+  max-width: var(--measure); margin: 0 0 2rem;
+}
+h2 {
+  font-size: 1.3rem; line-height: 1.3; margin: 2.5rem 0 .75rem;
+  max-width: var(--measure);
+}
+p, li { max-width: var(--measure); margin: 0 0 var(--gap); }
+ul, ol { padding-left: 1.25rem; }
+li { margin-bottom: .6rem; }
+
+a { color: var(--accent-dark); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { color: var(--ink); }
+
+/* A picture between the paragraphs, as specified. */
+figure { margin: 2.5rem 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 4px; }
+figcaption { font-size: .85rem; color: var(--ink-soft); margin-top: .6rem; max-width: var(--measure); }
+
+/* ---------- call to action ---------- */
+.cta {
+  display: inline-block; margin: .5rem 0 2rem;
+  background: var(--accent); color: #fff; text-decoration: none;
+  padding: .85rem 1.6rem; border-radius: 4px; font-weight: 600;
+}
+.cta:hover { background: var(--accent-dark); color: #fff; }
+
+/* ---------- the three pictures above the footer ---------- */
+.strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin: 3.5rem 0 0; padding: 0; list-style: none;
+}
+.strip li { margin: 0; max-width: none; }
+.strip img { display: block; width: 100%; height: auto; border-radius: 4px; }
+
+/* ---------- footer ---------- */
+.site-foot {
+  margin-top: 3rem; padding: 2.5rem 0 3rem;
+  background: var(--paper-sunk); border-top: 1px solid var(--rule);
+  font-size: .94rem;
+}
+.foot-cols { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem; }
+.foot-cols h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); margin: 0 0 .75rem; }
+.foot-cols p, .foot-cols li { max-width: none; margin-bottom: .5rem; }
+.foot-cols ul { list-style: none; padding: 0; margin: 0; }
+.legal {
+  margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+  color: var(--ink-soft); font-size: .86rem;
+}
+
+/* A placeholder that is OBVIOUSLY a placeholder. If this ever reaches a live
+   site it should look wrong immediately, not blend in. */
+.slot {
+  border: 2px dashed var(--accent); border-radius: 4px;
+  padding: .7rem .9rem; color: var(--accent-dark);
+  font-size: .86rem; background: rgba(74,107,124,.06);
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Small screens. Desktop is the standard, mobile is built in - not an
+   afterthought and not a separate site.
+   ========================================================================== */
+@media (max-width: 46rem) {
+  html { font-size: 106.25%; }         /* 17px */
+
+  /* A long business name was wrapping onto three lines and pushing the header
+     to half the screen before a word of content appeared. Shrink it here rather
+     than cut it off - a business with a long name still has to read properly. */
+  .brand { font-size: .95rem; line-height: 1.3; }
+  .brand span { font-size: .62rem; }
+  .head-row { gap: .6rem; padding: .6rem 0; min-height: 0; }
+
+  .nav-toggle { display: inline-flex; }
+  .nav {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: .5rem 1.25rem 1rem; z-index: 20;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: .85rem .25rem; border-bottom: 1px solid var(--rule); border-radius: 0; }
+  .nav a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--accent); padding-left: .75rem; }
+  .site-head .wrap { position: relative; }
+
+  .strip { grid-template-columns: 1fr; }
+  .foot-cols { grid-template-columns: 1fr; gap: 1.75rem; }
+  h1 { font-size: 1.6rem; }
+}
+
+/* Some people turn animation off at the system level because it makes them
+   ill. Honour that rather than overriding it. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* A printed page should not waste ink on menus that cannot be clicked. */
+@media print {
+  .site-head, .strip, .cta, .lang, .nav-toggle { display: none; }
+  body { background: #fff; color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
