@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" role="img" aria-label="YOUR BANNER">
-  <rect width="1600" height="400" fill="#F2EEE8"/>
+  <rect width="1600" height="400" fill="#FBE3DC"/>
   <rect x="8" y="8" width="1584" height="384" fill="none"
-        stroke="#4A6B7C" stroke-width="3" stroke-dasharray="14 10" opacity=".7"/>
-  <g fill="#4A6B7C" opacity=".18">
+        stroke="#2C6E6B" stroke-width="3" stroke-dasharray="14 10" opacity=".65"/>
+  <g fill="#2C6E6B" opacity=".16">
     <circle cx="680" cy="200" r="57"/>
     <rect x="760" y="150" width="100" height="100" rx="6"/>
     <path d="M 940 250 L 1000 150 L 1060 250 Z"/>
   </g>
   <text x="800" y="280" text-anchor="middle"
         font-family="Segoe UI, system-ui, sans-serif" font-size="28"
-        font-weight="600" fill="#4A6B7C" letter-spacing="2">YOUR BANNER</text>
+        font-weight="600" fill="#2C6E6B" letter-spacing="2">YOUR BANNER</text>
   <text x="800" y="316" text-anchor="middle"
         font-family="Segoe UI, system-ui, sans-serif" font-size="18"
         fill="#55514C">replace this image - 1600 x 400</text>
