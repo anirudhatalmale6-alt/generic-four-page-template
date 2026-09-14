@@ -10,10 +10,30 @@ different conversation - not something that happens quietly.
 Nothing here is bespoke per page except the words and which pictures are used.
 """
 
+import hashlib
 import html
 from pathlib import Path
 
 HERE = Path(__file__).parent
+
+
+def css_version():
+    """A short fingerprint of the stylesheet, added to its web address.
+
+    Browsers hold on to a stylesheet for a while rather than fetching it again
+    every time - which is normally a kindness, and once was not. A colour change
+    went live and the person looking at it kept seeing the old colours, because
+    their browser was still using the copy it already had. They were not doing
+    anything wrong and had no way to know.
+
+    Changing the file changes this fingerprint, which changes the address, which
+    the browser has never seen before - so it fetches it. Nobody has to know to
+    press anything.
+    """
+    css = HERE / "style.css"
+    if not css.exists():
+        return "1"
+    return hashlib.sha1(css.read_bytes()).hexdigest()[:8]
 
 # The four pages, in order. Title, file, nav label, and the words.
 NAV = [
@@ -44,7 +64,7 @@ def head(page, title):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)} — Your Business Name</title>
 <meta name="description" content="Replace this with one plain sentence describing what this business does.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={css_version()}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
