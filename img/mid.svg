@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="YOUR PICTURE">
-  <rect width="1200" height="620" fill="#FBE3DC"/>
+  <rect width="1200" height="620" fill="#fad6ce"/>
   <rect x="8" y="8" width="1184" height="604" fill="none"
-        stroke="#2C6E6B" stroke-width="3" stroke-dasharray="14 10" opacity=".65"/>
-  <g fill="#2C6E6B" opacity=".16">
+        stroke="#0B6A5B" stroke-width="3" stroke-dasharray="14 10" opacity=".6"/>
+  <g fill="#0B6A5B" opacity=".14">
     <circle cx="480" cy="310" r="88"/>
     <rect x="560" y="233" width="155" height="155" rx="6"/>
     <path d="M 740 387 L 800 233 L 860 387 Z"/>
   </g>
   <text x="600" y="434" text-anchor="middle"
         font-family="Segoe UI, system-ui, sans-serif" font-size="44"
-        font-weight="600" fill="#2C6E6B" letter-spacing="2">YOUR PICTURE</text>
+        font-weight="600" fill="#0B6A5B" letter-spacing="2">YOUR PICTURE</text>
   <text x="600" y="490" text-anchor="middle"
         font-family="Segoe UI, system-ui, sans-serif" font-size="28"
         fill="#55514C">replace this image - sits between the paragraphs</text>

@@ -9,20 +9,26 @@
    ========================================================================== */
 
 :root {
-  /* ---- the two colours. Change these and the whole site changes. ----
-     Light mango pink leads, teal does the work.
+  /* ---- the colours. Change these and the whole site changes. ----
+     These are the owner's real brand colours, not approximations.
 
-     Why they are used that way round, rather than pink on the buttons:
-     a light pink is light BECAUSE it is close to white, so white lettering on
-     it is close to unreadable, and dark lettering on a strong pink button
-     looks muddy. Teal is dark enough to carry white text properly. So pink
-     is what you SEE - banner, tints, edges - and teal is what you PRESS.
-     Checked, not guessed: white on this teal is 5.9:1 and the ink on this
-     pink is 7.3:1, where the accessibility standard asks for 4.5:1. */
-  --mango:         #F4A896;   /* light mango pink - the warmth */
-  --mango-soft:    #FBE3DC;   /* the same pink, whispered - for large fills */
-  --accent:        #2C6E6B;   /* teal - buttons, links, focus */
-  --accent-dark:   #1F6B68;   /* for hover/focus - darker, not brighter */
+     PINK LEADS, TEAL WORKS. A light pink is light because it is close to
+     white, so white lettering on it is unreadable and dark lettering on a
+     strong pink button goes muddy. So pink is what you SEE - banner, tints,
+     edges - and teal is what you READ and PRESS.
+
+     One deliberate change from the brand as found: the original teal (#18baa0)
+     was being used for body text, headings and links. Against the pink it
+     measures 1.82:1, and against white 2.31:1, where the standard asks 4.5:1
+     for normal text and 3:1 even for large display text. It fails both. It is
+     a lovely colour and it cannot carry words.
+     So the same hue is deepened here to #0B6A5B, which reads at 6.14:1 on the
+     page and 4.83:1 on the pink, and takes white lettering at 6.51:1.
+     Same family, same feeling, legible to the people this layout was built for. */
+  --mango:         #d8613c;   /* the warm mango line - rules and markers only */
+  --mango-soft:    #fad6ce;   /* the brand pink - banner and large warm fills */
+  --accent:        #0B6A5B;   /* teal, deepened - headings, links, buttons */
+  --accent-dark:   #08544A;   /* for hover/focus - darker, not brighter */
 
   /* ---- paper and ink ----
      Not pure white on pure black. A stark white page glares under a lamp and
@@ -157,6 +163,7 @@ main { display: block; padding: 2.5rem 0 1rem; }
 h1 {
   font-size: 1.9rem; line-height: 1.25; margin: 0 0 .4rem;
   max-width: var(--measure);
+  color: var(--accent);            /* his headings are teal, as on his own site */
 }
 .standfirst {
   font-size: 1.08rem; color: var(--ink-soft);
@@ -165,6 +172,7 @@ h1 {
 h2 {
   font-size: 1.3rem; line-height: 1.3; margin: 2.5rem 0 .75rem;
   max-width: var(--measure);
+  color: var(--accent);
 }
 p, li { max-width: var(--measure); margin: 0 0 var(--gap); }
 ul, ol { padding-left: 1.25rem; }
